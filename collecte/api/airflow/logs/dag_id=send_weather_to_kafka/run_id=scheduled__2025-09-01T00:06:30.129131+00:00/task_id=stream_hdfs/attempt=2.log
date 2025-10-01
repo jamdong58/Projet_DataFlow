@@ -1,0 +1,238 @@
+[2025-09-01 00:42:01,822] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: send_weather_to_kafka.stream_hdfs scheduled__2025-09-01T00:06:30.129131+00:00 [queued]>
+[2025-09-01 00:42:01,839] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: send_weather_to_kafka.stream_hdfs scheduled__2025-09-01T00:06:30.129131+00:00 [queued]>
+[2025-09-01 00:42:01,840] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2025-09-01 00:42:01,840] {taskinstance.py:1357} INFO - Starting attempt 2 of 2
+[2025-09-01 00:42:01,840] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2025-09-01 00:42:01,863] {taskinstance.py:1377} INFO - Executing <Task(BashOperator): stream_hdfs> on 2025-09-01 00:06:30.129131+00:00
+[2025-09-01 00:42:01,869] {standard_task_runner.py:52} INFO - Started process 3801 to run task
+[2025-09-01 00:42:01,874] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'send_weather_to_kafka', 'stream_hdfs', 'scheduled__2025-09-01T00:06:30.129131+00:00', '--job-id', '402', '--raw', '--subdir', 'DAGS_FOLDER/dag_meteo.py', '--cfg-path', '/tmp/tmpvjtc61lc', '--error-file', '/tmp/tmpmb7tp0r6']
+[2025-09-01 00:42:01,875] {standard_task_runner.py:80} INFO - Job 402: Subtask stream_hdfs
+[2025-09-01 00:42:01,899] {logging_mixin.py:115} WARNING - /home/***/.local/lib/python3.7/site-packages/***/configuration.py:470 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-09-01 00:42:01,961] {task_command.py:369} INFO - Running <TaskInstance: send_weather_to_kafka.stream_hdfs scheduled__2025-09-01T00:06:30.129131+00:00 [running]> on host 5d7670b258c3
+[2025-09-01 00:42:02,074] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=send_weather_to_kafka
+AIRFLOW_CTX_TASK_ID=stream_hdfs
+AIRFLOW_CTX_EXECUTION_DATE=2025-09-01T00:06:30.129131+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2025-09-01T00:06:30.129131+00:00
+[2025-09-01 00:42:02,075] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2025-09-01 00:42:02,076] {subprocess.py:74} INFO - Running command: ['bash', '-c', '\n/home/***/.local/bin/spark-submit   --master local[*]   --conf spark.hadoop.fs.defaultFS=hdfs://namenode:9000   --conf spark.hadoop.dfs.client.use.datanode.hostname=true   --conf spark.sql.adaptive.enabled=false   --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.1   /opt/***/scripts/pyspark/streaming.py']
+[2025-09-01 00:42:02,095] {subprocess.py:85} INFO - Output:
+[2025-09-01 00:42:02,111] {subprocess.py:92} INFO - /opt/spark-3.3.1-bin-hadoop3/bin/load-spark-env.sh: line 68: ps: command not found
+[2025-09-01 00:42:03,866] {subprocess.py:92} INFO - :: loading settings :: url = jar:file:/opt/spark-3.3.1-bin-hadoop3/jars/ivy-2.5.0.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2025-09-01 00:42:04,032] {subprocess.py:92} INFO - Ivy Default Cache set to: /home/***/.ivy2/cache
+[2025-09-01 00:42:04,032] {subprocess.py:92} INFO - The jars for the packages stored in: /home/***/.ivy2/jars
+[2025-09-01 00:42:04,041] {subprocess.py:92} INFO - org.apache.spark#spark-sql-kafka-0-10_2.12 added as a dependency
+[2025-09-01 00:42:04,043] {subprocess.py:92} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-a4131a31-57dd-4b34-8eb7-7c22fc765a54;1.0
+[2025-09-01 00:42:04,044] {subprocess.py:92} INFO - 	confs: [default]
+[2025-09-01 00:42:04,224] {subprocess.py:92} INFO - 	found org.apache.spark#spark-sql-kafka-0-10_2.12;3.3.1 in central
+[2025-09-01 00:42:04,281] {subprocess.py:92} INFO - 	found org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.3.1 in central
+[2025-09-01 00:42:04,311] {subprocess.py:92} INFO - 	found org.apache.kafka#kafka-clients;2.8.1 in central
+[2025-09-01 00:42:04,341] {subprocess.py:92} INFO - 	found org.lz4#lz4-java;1.8.0 in central
+[2025-09-01 00:42:04,366] {subprocess.py:92} INFO - 	found org.xerial.snappy#snappy-java;1.1.8.4 in central
+[2025-09-01 00:42:04,387] {subprocess.py:92} INFO - 	found org.slf4j#slf4j-api;1.7.32 in central
+[2025-09-01 00:42:04,415] {subprocess.py:92} INFO - 	found org.apache.hadoop#hadoop-client-runtime;3.3.2 in central
+[2025-09-01 00:42:04,431] {subprocess.py:92} INFO - 	found org.spark-project.spark#unused;1.0.0 in central
+[2025-09-01 00:42:04,458] {subprocess.py:92} INFO - 	found org.apache.hadoop#hadoop-client-api;3.3.2 in central
+[2025-09-01 00:42:04,480] {subprocess.py:92} INFO - 	found commons-logging#commons-logging;1.1.3 in central
+[2025-09-01 00:42:04,495] {subprocess.py:92} INFO - 	found com.google.code.findbugs#jsr305;3.0.0 in central
+[2025-09-01 00:42:04,508] {subprocess.py:92} INFO - 	found org.apache.commons#commons-pool2;2.11.1 in central
+[2025-09-01 00:42:04,538] {subprocess.py:92} INFO - :: resolution report :: resolve 479ms :: artifacts dl 15ms
+[2025-09-01 00:42:04,538] {subprocess.py:92} INFO - 	:: modules in use:
+[2025-09-01 00:42:04,538] {subprocess.py:92} INFO - 	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+[2025-09-01 00:42:04,538] {subprocess.py:92} INFO - 	commons-logging#commons-logging;1.1.3 from central in [default]
+[2025-09-01 00:42:04,538] {subprocess.py:92} INFO - 	org.apache.commons#commons-pool2;2.11.1 from central in [default]
+[2025-09-01 00:42:04,538] {subprocess.py:92} INFO - 	org.apache.hadoop#hadoop-client-api;3.3.2 from central in [default]
+[2025-09-01 00:42:04,539] {subprocess.py:92} INFO - 	org.apache.hadoop#hadoop-client-runtime;3.3.2 from central in [default]
+[2025-09-01 00:42:04,539] {subprocess.py:92} INFO - 	org.apache.kafka#kafka-clients;2.8.1 from central in [default]
+[2025-09-01 00:42:04,539] {subprocess.py:92} INFO - 	org.apache.spark#spark-sql-kafka-0-10_2.12;3.3.1 from central in [default]
+[2025-09-01 00:42:04,539] {subprocess.py:92} INFO - 	org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.3.1 from central in [default]
+[2025-09-01 00:42:04,539] {subprocess.py:92} INFO - 	org.lz4#lz4-java;1.8.0 from central in [default]
+[2025-09-01 00:42:04,539] {subprocess.py:92} INFO - 	org.slf4j#slf4j-api;1.7.32 from central in [default]
+[2025-09-01 00:42:04,539] {subprocess.py:92} INFO - 	org.spark-project.spark#unused;1.0.0 from central in [default]
+[2025-09-01 00:42:04,539] {subprocess.py:92} INFO - 	org.xerial.snappy#snappy-java;1.1.8.4 from central in [default]
+[2025-09-01 00:42:04,539] {subprocess.py:92} INFO - 	---------------------------------------------------------------------
+[2025-09-01 00:42:04,539] {subprocess.py:92} INFO - 	|                  |            modules            ||   artifacts   |
+[2025-09-01 00:42:04,539] {subprocess.py:92} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2025-09-01 00:42:04,540] {subprocess.py:92} INFO - 	---------------------------------------------------------------------
+[2025-09-01 00:42:04,540] {subprocess.py:92} INFO - 	|      default     |   12  |   0   |   0   |   0   ||   12  |   0   |
+[2025-09-01 00:42:04,540] {subprocess.py:92} INFO - 	---------------------------------------------------------------------
+[2025-09-01 00:42:04,546] {subprocess.py:92} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-a4131a31-57dd-4b34-8eb7-7c22fc765a54
+[2025-09-01 00:42:04,547] {subprocess.py:92} INFO - 	confs: [default]
+[2025-09-01 00:42:04,556] {subprocess.py:92} INFO - 	0 artifacts copied, 12 already retrieved (0kB/10ms)
+[2025-09-01 00:42:04,824] {subprocess.py:92} INFO - 25/09/01 00:42:04 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-09-01 00:42:06,329] {subprocess.py:92} INFO - 25/09/01 00:42:06 INFO SparkContext: Running Spark version 3.3.1
+[2025-09-01 00:42:06,386] {subprocess.py:92} INFO - 25/09/01 00:42:06 INFO ResourceUtils: ==============================================================
+[2025-09-01 00:42:06,387] {subprocess.py:92} INFO - 25/09/01 00:42:06 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-09-01 00:42:06,387] {subprocess.py:92} INFO - 25/09/01 00:42:06 INFO ResourceUtils: ==============================================================
+[2025-09-01 00:42:06,388] {subprocess.py:92} INFO - 25/09/01 00:42:06 INFO SparkContext: Submitted application: KafkaToHDFSWeather
+[2025-09-01 00:42:06,434] {subprocess.py:92} INFO - 25/09/01 00:42:06 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-09-01 00:42:06,457] {subprocess.py:92} INFO - 25/09/01 00:42:06 INFO ResourceProfile: Limiting resource is cpu
+[2025-09-01 00:42:06,459] {subprocess.py:92} INFO - 25/09/01 00:42:06 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-09-01 00:42:06,579] {subprocess.py:92} INFO - 25/09/01 00:42:06 INFO SecurityManager: Changing view acls to: ***
+[2025-09-01 00:42:06,580] {subprocess.py:92} INFO - 25/09/01 00:42:06 INFO SecurityManager: Changing modify acls to: ***
+[2025-09-01 00:42:06,581] {subprocess.py:92} INFO - 25/09/01 00:42:06 INFO SecurityManager: Changing view acls groups to:
+[2025-09-01 00:42:06,582] {subprocess.py:92} INFO - 25/09/01 00:42:06 INFO SecurityManager: Changing modify acls groups to:
+[2025-09-01 00:42:06,583] {subprocess.py:92} INFO - 25/09/01 00:42:06 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(***); groups with view permissions: Set(); users  with modify permissions: Set(***); groups with modify permissions: Set()
+[2025-09-01 00:42:06,904] {subprocess.py:92} INFO - 25/09/01 00:42:06 INFO Utils: Successfully started service 'sparkDriver' on port 39747.
+[2025-09-01 00:42:06,947] {subprocess.py:92} INFO - 25/09/01 00:42:06 INFO SparkEnv: Registering MapOutputTracker
+[2025-09-01 00:42:07,007] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkEnv: Registering BlockManagerMaster
+[2025-09-01 00:42:07,040] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-09-01 00:42:07,040] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-09-01 00:42:07,047] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-09-01 00:42:07,072] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-f3d29a86-5eb7-4326-b44d-45646b5d9715
+[2025-09-01 00:42:07,095] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-09-01 00:42:07,114] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-09-01 00:42:07,349] {subprocess.py:92} INFO - 25/09/01 00:42:07 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2025-09-01 00:42:07,349] {subprocess.py:92} INFO - 25/09/01 00:42:07 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[2025-09-01 00:42:07,350] {subprocess.py:92} INFO - 25/09/01 00:42:07 WARN Utils: Service 'SparkUI' could not bind on port 4042. Attempting port 4043.
+[2025-09-01 00:42:07,362] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: Successfully started service 'SparkUI' on port 4043.
+[2025-09-01 00:42:07,406] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar at spark://5d7670b258c3:39747/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,406] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar at spark://5d7670b258c3:39747/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,406] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.kafka_kafka-clients-2.8.1.jar at spark://5d7670b258c3:39747/jars/org.apache.kafka_kafka-clients-2.8.1.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,406] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar at spark://5d7670b258c3:39747/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,406] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar at spark://5d7670b258c3:39747/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,407] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.spark-project.spark_unused-1.0.0.jar at spark://5d7670b258c3:39747/jars/org.spark-project.spark_unused-1.0.0.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,407] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar at spark://5d7670b258c3:39747/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,407] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar at spark://5d7670b258c3:39747/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,408] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar at spark://5d7670b258c3:39747/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,408] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.slf4j_slf4j-api-1.7.32.jar at spark://5d7670b258c3:39747/jars/org.slf4j_slf4j-api-1.7.32.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,408] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar at spark://5d7670b258c3:39747/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,408] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar at spark://5d7670b258c3:39747/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,412] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar at file:///home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,414] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar
+[2025-09-01 00:42:07,431] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar at file:///home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,431] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar
+[2025-09-01 00:42:07,437] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.kafka_kafka-clients-2.8.1.jar at file:///home/***/.ivy2/jars/org.apache.kafka_kafka-clients-2.8.1.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,438] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.kafka_kafka-clients-2.8.1.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.kafka_kafka-clients-2.8.1.jar
+[2025-09-01 00:42:07,450] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added file file:///home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar at file:///home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,451] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: Copying /home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/com.google.code.findbugs_jsr305-3.0.0.jar
+[2025-09-01 00:42:07,457] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar at file:///home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,457] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.commons_commons-pool2-2.11.1.jar
+[2025-09-01 00:42:07,464] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.spark-project.spark_unused-1.0.0.jar at file:///home/***/.ivy2/jars/org.spark-project.spark_unused-1.0.0.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,464] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: Copying /home/***/.ivy2/jars/org.spark-project.spark_unused-1.0.0.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.spark-project.spark_unused-1.0.0.jar
+[2025-09-01 00:42:07,469] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar at file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,470] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar
+[2025-09-01 00:42:07,502] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar at file:///home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,503] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: Copying /home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.lz4_lz4-java-1.8.0.jar
+[2025-09-01 00:42:07,508] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar at file:///home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,509] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: Copying /home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.xerial.snappy_snappy-java-1.1.8.4.jar
+[2025-09-01 00:42:07,516] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.slf4j_slf4j-api-1.7.32.jar at file:///home/***/.ivy2/jars/org.slf4j_slf4j-api-1.7.32.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,516] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: Copying /home/***/.ivy2/jars/org.slf4j_slf4j-api-1.7.32.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.slf4j_slf4j-api-1.7.32.jar
+[2025-09-01 00:42:07,523] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar at file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,523] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.hadoop_hadoop-client-api-3.3.2.jar
+[2025-09-01 00:42:07,551] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO SparkContext: Added file file:///home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar at file:///home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,552] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: Copying /home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/commons-logging_commons-logging-1.1.3.jar
+[2025-09-01 00:42:07,673] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Executor: Starting executor ID driver on host 5d7670b258c3
+[2025-09-01 00:42:07,683] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+[2025-09-01 00:42:07,700] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Executor: Fetching file:///home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,722] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: /home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/commons-logging_commons-logging-1.1.3.jar
+[2025-09-01 00:42:07,728] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.spark-project.spark_unused-1.0.0.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,728] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: /home/***/.ivy2/jars/org.spark-project.spark_unused-1.0.0.jar has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.spark-project.spark_unused-1.0.0.jar
+[2025-09-01 00:42:07,733] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,739] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: /home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar
+[2025-09-01 00:42:07,745] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,763] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: /home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.hadoop_hadoop-client-api-3.3.2.jar
+[2025-09-01 00:42:07,768] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,797] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: /home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar
+[2025-09-01 00:42:07,802] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.slf4j_slf4j-api-1.7.32.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,803] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: /home/***/.ivy2/jars/org.slf4j_slf4j-api-1.7.32.jar has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.slf4j_slf4j-api-1.7.32.jar
+[2025-09-01 00:42:07,809] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,811] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: /home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.lz4_lz4-java-1.8.0.jar
+[2025-09-01 00:42:07,818] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,819] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: /home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.commons_commons-pool2-2.11.1.jar
+[2025-09-01 00:42:07,824] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Executor: Fetching file:///home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,825] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: /home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/com.google.code.findbugs_jsr305-3.0.0.jar
+[2025-09-01 00:42:07,830] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,831] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: /home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar
+[2025-09-01 00:42:07,836] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.kafka_kafka-clients-2.8.1.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,846] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: /home/***/.ivy2/jars/org.apache.kafka_kafka-clients-2.8.1.jar has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.kafka_kafka-clients-2.8.1.jar
+[2025-09-01 00:42:07,852] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,857] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: /home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.xerial.snappy_snappy-java-1.1.8.4.jar
+[2025-09-01 00:42:07,868] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Executor: Fetching spark://5d7670b258c3:39747/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1756687326314
+[2025-09-01 00:42:07,945] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO TransportClientFactory: Successfully created connection to 5d7670b258c3/172.20.0.18:39747 after 53 ms (0 ms spent in bootstraps)
+[2025-09-01 00:42:07,960] {subprocess.py:92} INFO - 25/09/01 00:42:07 INFO Utils: Fetching spark://5d7670b258c3:39747/jars/com.google.code.findbugs_jsr305-3.0.0.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp3722589641437184578.tmp
+[2025-09-01 00:42:08,035] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp3722589641437184578.tmp has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/com.google.code.findbugs_jsr305-3.0.0.jar
+[2025-09-01 00:42:08,046] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Adding file:/tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/com.google.code.findbugs_jsr305-3.0.0.jar to class loader
+[2025-09-01 00:42:08,047] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Fetching spark://5d7670b258c3:39747/jars/org.spark-project.spark_unused-1.0.0.jar with timestamp 1756687326314
+[2025-09-01 00:42:08,049] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: Fetching spark://5d7670b258c3:39747/jars/org.spark-project.spark_unused-1.0.0.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp6209986071377841948.tmp
+[2025-09-01 00:42:08,052] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp6209986071377841948.tmp has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.spark-project.spark_unused-1.0.0.jar
+[2025-09-01 00:42:08,060] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Adding file:/tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.spark-project.spark_unused-1.0.0.jar to class loader
+[2025-09-01 00:42:08,061] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Fetching spark://5d7670b258c3:39747/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar with timestamp 1756687326314
+[2025-09-01 00:42:08,064] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: Fetching spark://5d7670b258c3:39747/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp17599994236629686656.tmp
+[2025-09-01 00:42:08,074] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp17599994236629686656.tmp has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar
+[2025-09-01 00:42:08,082] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Adding file:/tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar to class loader
+[2025-09-01 00:42:08,083] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Fetching spark://5d7670b258c3:39747/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1756687326314
+[2025-09-01 00:42:08,086] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: Fetching spark://5d7670b258c3:39747/jars/org.lz4_lz4-java-1.8.0.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp1053268383735361785.tmp
+[2025-09-01 00:42:08,099] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp1053268383735361785.tmp has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.lz4_lz4-java-1.8.0.jar
+[2025-09-01 00:42:08,108] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Adding file:/tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.lz4_lz4-java-1.8.0.jar to class loader
+[2025-09-01 00:42:08,109] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Fetching spark://5d7670b258c3:39747/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar with timestamp 1756687326314
+[2025-09-01 00:42:08,111] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: Fetching spark://5d7670b258c3:39747/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp3164647628998795008.tmp
+[2025-09-01 00:42:08,129] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp3164647628998795008.tmp has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.xerial.snappy_snappy-java-1.1.8.4.jar
+[2025-09-01 00:42:08,134] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Adding file:/tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.xerial.snappy_snappy-java-1.1.8.4.jar to class loader
+[2025-09-01 00:42:08,135] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Fetching spark://5d7670b258c3:39747/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar with timestamp 1756687326314
+[2025-09-01 00:42:08,136] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: Fetching spark://5d7670b258c3:39747/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp9718269411646923285.tmp
+[2025-09-01 00:42:08,253] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp9718269411646923285.tmp has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.hadoop_hadoop-client-api-3.3.2.jar
+[2025-09-01 00:42:08,263] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Adding file:/tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.hadoop_hadoop-client-api-3.3.2.jar to class loader
+[2025-09-01 00:42:08,264] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Fetching spark://5d7670b258c3:39747/jars/org.slf4j_slf4j-api-1.7.32.jar with timestamp 1756687326314
+[2025-09-01 00:42:08,265] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: Fetching spark://5d7670b258c3:39747/jars/org.slf4j_slf4j-api-1.7.32.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp7898920878715744029.tmp
+[2025-09-01 00:42:08,268] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp7898920878715744029.tmp has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.slf4j_slf4j-api-1.7.32.jar
+[2025-09-01 00:42:08,274] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Adding file:/tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.slf4j_slf4j-api-1.7.32.jar to class loader
+[2025-09-01 00:42:08,275] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Fetching spark://5d7670b258c3:39747/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar with timestamp 1756687326314
+[2025-09-01 00:42:08,276] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: Fetching spark://5d7670b258c3:39747/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp8157699656195017245.tmp
+[2025-09-01 00:42:08,279] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp8157699656195017245.tmp has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar
+[2025-09-01 00:42:08,286] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Adding file:/tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar to class loader
+[2025-09-01 00:42:08,287] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Fetching spark://5d7670b258c3:39747/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1756687326314
+[2025-09-01 00:42:08,288] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: Fetching spark://5d7670b258c3:39747/jars/org.apache.commons_commons-pool2-2.11.1.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp15148690941472721259.tmp
+[2025-09-01 00:42:08,292] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp15148690941472721259.tmp has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.commons_commons-pool2-2.11.1.jar
+[2025-09-01 00:42:08,297] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Adding file:/tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.commons_commons-pool2-2.11.1.jar to class loader
+[2025-09-01 00:42:08,298] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Fetching spark://5d7670b258c3:39747/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1756687326314
+[2025-09-01 00:42:08,299] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: Fetching spark://5d7670b258c3:39747/jars/commons-logging_commons-logging-1.1.3.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp12693354213563742672.tmp
+[2025-09-01 00:42:08,302] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp12693354213563742672.tmp has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/commons-logging_commons-logging-1.1.3.jar
+[2025-09-01 00:42:08,308] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Adding file:/tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/commons-logging_commons-logging-1.1.3.jar to class loader
+[2025-09-01 00:42:08,308] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Fetching spark://5d7670b258c3:39747/jars/org.apache.kafka_kafka-clients-2.8.1.jar with timestamp 1756687326314
+[2025-09-01 00:42:08,309] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: Fetching spark://5d7670b258c3:39747/jars/org.apache.kafka_kafka-clients-2.8.1.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp8871411276456403765.tmp
+[2025-09-01 00:42:08,336] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp8871411276456403765.tmp has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.kafka_kafka-clients-2.8.1.jar
+[2025-09-01 00:42:08,342] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Adding file:/tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.kafka_kafka-clients-2.8.1.jar to class loader
+[2025-09-01 00:42:08,343] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Fetching spark://5d7670b258c3:39747/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar with timestamp 1756687326314
+[2025-09-01 00:42:08,343] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: Fetching spark://5d7670b258c3:39747/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp8848495570935595055.tmp
+[2025-09-01 00:42:08,479] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/fetchFileTemp8848495570935595055.tmp has been previously copied to /tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar
+[2025-09-01 00:42:08,489] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Executor: Adding file:/tmp/spark-c1234636-48d8-4311-b530-d24664418813/userFiles-f3b883a2-eb7e-43d1-bde4-ea27392c7b9e/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar to class loader
+[2025-09-01 00:42:08,501] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 37315.
+[2025-09-01 00:42:08,503] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO NettyBlockTransferService: Server created on 5d7670b258c3:37315
+[2025-09-01 00:42:08,506] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-09-01 00:42:08,514] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 5d7670b258c3, 37315, None)
+[2025-09-01 00:42:08,520] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO BlockManagerMasterEndpoint: Registering block manager 5d7670b258c3:37315 with 434.4 MiB RAM, BlockManagerId(driver, 5d7670b258c3, 37315, None)
+[2025-09-01 00:42:08,524] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 5d7670b258c3, 37315, None)
+[2025-09-01 00:42:08,525] {subprocess.py:92} INFO - 25/09/01 00:42:08 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 5d7670b258c3, 37315, None)
+[2025-09-01 00:42:09,072] {subprocess.py:92} INFO - Connexion à Kafka...
+[2025-09-01 00:42:11,531] {subprocess.py:92} INFO - Connexion Kafka réussie (kafka:9092)
+[2025-09-01 00:42:11,531] {subprocess.py:92} INFO - Transformation des données JSON...
+[2025-09-01 00:42:11,833] {subprocess.py:92} INFO - Démarrage du streaming vers HDFS...
+[2025-09-01 00:42:12,817] {subprocess.py:92} INFO - Streaming actif - Données météo sauvegardées dans HDFS:/data/weather
+[2025-09-01 00:48:48,887] {local_task_job.py:84} ERROR - Received SIGTERM. Terminating subprocesses
+[2025-09-01 00:48:48,900] {process_utils.py:129} INFO - Sending Signals.SIGTERM to group 3801. PIDs of all processes in the group: [3802, 3850, 3801]
+[2025-09-01 00:48:48,901] {process_utils.py:80} INFO - Sending the signal Signals.SIGTERM to group 3801
+[2025-09-01 00:48:48,901] {taskinstance.py:1541} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-09-01 00:48:48,902] {subprocess.py:103} INFO - Sending SIGTERM signal to process group
+[2025-09-01 00:48:49,062] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 189, in execute
+    cwd=self.cwd,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/subprocess.py", line 90, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b''):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1543, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2025-09-01 00:48:49,120] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=send_weather_to_kafka, task_id=stream_hdfs, execution_date=20250901T000630, start_date=20250901T004201, end_date=20250901T004849
+[2025-09-01 00:48:49,194] {standard_task_runner.py:97} ERROR - Failed to execute job 402 for task stream_hdfs (Task received SIGTERM signal; 3801)
+[2025-09-01 00:48:49,238] {process_utils.py:75} INFO - Process psutil.Process(pid=3801, status='terminated', exitcode=1, started='00:42:00') (3801) terminated with exit code 1
+[2025-09-01 00:48:49,239] {process_utils.py:75} INFO - Process psutil.Process(pid=3850, status='terminated', started='00:42:04') (3850) terminated with exit code None
+[2025-09-01 00:48:49,643] {process_utils.py:75} INFO - Process psutil.Process(pid=3802, status='terminated', started='00:42:01') (3802) terminated with exit code None
+[2025-09-01 00:48:49,644] {local_task_job.py:156} INFO - Task exited with return code 143
+[2025-09-01 00:48:49,729] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-09-01 00:48:51,522] {local_task_job.py:84} ERROR - Received SIGTERM. Terminating subprocesses

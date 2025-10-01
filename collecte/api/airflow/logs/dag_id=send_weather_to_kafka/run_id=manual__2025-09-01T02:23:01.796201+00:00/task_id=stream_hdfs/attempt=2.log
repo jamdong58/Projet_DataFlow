@@ -1,0 +1,32 @@
+[2025-09-01 04:50:47,900] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: send_weather_to_kafka.stream_hdfs manual__2025-09-01T02:23:01.796201+00:00 [queued]>
+[2025-09-01 04:50:47,925] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: send_weather_to_kafka.stream_hdfs manual__2025-09-01T02:23:01.796201+00:00 [queued]>
+[2025-09-01 04:50:47,926] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2025-09-01 04:50:47,926] {taskinstance.py:1357} INFO - Starting attempt 2 of 2
+[2025-09-01 04:50:47,926] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2025-09-01 04:50:47,952] {taskinstance.py:1377} INFO - Executing <Task(BashOperator): stream_hdfs> on 2025-09-01 02:23:01.796201+00:00
+[2025-09-01 04:50:47,959] {standard_task_runner.py:52} INFO - Started process 8043 to run task
+[2025-09-01 04:50:47,963] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'send_weather_to_kafka', 'stream_hdfs', 'manual__2025-09-01T02:23:01.796201+00:00', '--job-id', '456', '--raw', '--subdir', 'DAGS_FOLDER/dag_meteo.py', '--cfg-path', '/tmp/tmp9bwcb01n', '--error-file', '/tmp/tmpzj9pcqse']
+[2025-09-01 04:50:47,964] {standard_task_runner.py:80} INFO - Job 456: Subtask stream_hdfs
+[2025-09-01 04:50:48,081] {task_command.py:369} INFO - Running <TaskInstance: send_weather_to_kafka.stream_hdfs manual__2025-09-01T02:23:01.796201+00:00 [running]> on host e66737cfc193
+[2025-09-01 04:50:48,270] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=send_weather_to_kafka
+AIRFLOW_CTX_TASK_ID=stream_hdfs
+AIRFLOW_CTX_EXECUTION_DATE=2025-09-01T02:23:01.796201+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2025-09-01T02:23:01.796201+00:00
+[2025-09-01 04:50:48,271] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2025-09-01 04:50:48,272] {subprocess.py:74} INFO - Running command: ['bash', '-c', '\n/home/***/.local/bin/spark-submit   --master local[*]   --conf spark.hadoop.fs.defaultFS=hdfs://namenode:9000   --conf spark.hadoop.dfs.client.use.datanode.hostname=true   --conf spark.sql.adaptive.enabled=false   --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.1   /opt/***/scripts/pyspark/streaming.py']
+[2025-09-01 04:50:48,291] {subprocess.py:85} INFO - Output:
+[2025-09-01 04:50:48,310] {subprocess.py:92} INFO - /opt/spark-3.3.1-bin-hadoop3/bin/load-spark-env.sh: line 68: ps: command not found
+[2025-09-01 04:50:52,932] {subprocess.py:92} INFO - :: loading settings :: url = jar:file:/opt/spark-3.3.1-bin-hadoop3/jars/ivy-2.5.0.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2025-09-01 04:50:53,061] {local_task_job.py:221} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2025-09-01 04:50:53,069] {process_utils.py:129} INFO - Sending Signals.SIGTERM to group 8043. PIDs of all processes in the group: [8050, 8043]
+[2025-09-01 04:50:53,069] {process_utils.py:80} INFO - Sending the signal Signals.SIGTERM to group 8043
+[2025-09-01 04:50:53,070] {taskinstance.py:1541} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-09-01 04:50:53,070] {subprocess.py:103} INFO - Sending SIGTERM signal to process group
+[2025-09-01 04:50:53,162] {process_utils.py:75} INFO - Process psutil.Process(pid=8050, status='terminated', started='04:50:47') (8050) terminated with exit code None
+[2025-09-01 04:50:53,163] {process_utils.py:75} INFO - Process psutil.Process(pid=8043, status='terminated', exitcode=0, started='04:50:46') (8043) terminated with exit code 0

@@ -1,0 +1,461 @@
+version: '3.8'
+
+services:
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    networks:
+      - elk
+
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+    networks:
+      - elk
+    healthcheck:
+      test: ["CMD-SHELL", "kafka-topics --bootstrap-server kafka:9092 --list"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  redis:
+    image: redis
+    container_name: my_redis
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - elk
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.14.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - elk
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.14.0
+    container_name: logstash
+    volumes:
+      - ./collecte/api/elk/logstash/pipeline:/usr/share/logstash/pipeline
+    ports:
+      - "6000:6000"
+      - "9600:9600"
+    depends_on:      
+      kafka:
+        condition: service_started
+      elasticsearch:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - elk
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.14.0
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    networks:
+      - elk
+
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    networks:
+      - elk
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  #initialisation d'Airflow
+  airflow-init:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: custom_airflow:latest
+    user: "0:0"  
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow_db
+      AIRFLOW__CORE__FERNET_KEY: ${AIRFLOW_FERNET_KEY}
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "False"
+      _AIRFLOW_DB_UPGRADE: 'true'
+      _AIRFLOW_WWW_USER_CREATE: 'true'
+      _AIRFLOW_WWW_USER_USERNAME: admin
+      _AIRFLOW_WWW_USER_PASSWORD: admin
+      # Variables pour le pipeline
+      KAFKA_BROKER_URL: kafka:9092
+      REDIS_HOST: my_redis
+      REDIS_PORT: 6379
+      ELASTICSEARCH_HOST: elasticsearch
+      ELASTICSEARCH_PORT: 9200
+      TOMORROW_API_KEY: ${TOMORROW_API_KEY}
+    volumes:
+      - ./collecte/api/airflow/dags:/opt/airflow/dags
+      - ./collecte/api/airflow/logs:/opt/airflow/logs
+      - ./collecte/api/kafka:/opt/airflow/kafka
+      - ./collecte/api:/opt/airflow/scripts
+    command: ["airflow", "db", "init"]
+    networks:
+      - elk
+
+  webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: custom_airflow:latest
+    user: "${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-50000}"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      airflow-init:
+        condition: service_completed_successfully
+      kafka:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow_db
+      AIRFLOW__CORE__FERNET_KEY: ${AIRFLOW_FERNET_KEY}
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "False"
+      # Variables pour le pipeline
+      KAFKA_BROKER_URL: kafka:9092
+      REDIS_HOST: my_redis
+      REDIS_PORT: 6379
+      ELASTICSEARCH_HOST: elasticsearch
+      ELASTICSEARCH_PORT: 9200
+      TOMORROW_API_KEY: ${TOMORROW_API_KEY}
+      #Spark
+      JAVA_HOME: /usr/lib/jvm/java-11-openjdk-amd64
+      SPARK_HOME: /opt/spark-3.3.1-bin-hadoop3
+      HADOOP_CONF_DIR: /opt/hadoop/etc/hadoop
+    volumes:
+      - ./collecte/api/airflow/dags:/opt/airflow/dags
+      - ./collecte/api/airflow/logs:/opt/airflow/logs
+      - ./collecte/api/kafka:/opt/airflow/kafka
+      - ./collecte/api:/opt/airflow/scripts
+    ports:
+      - "8080:8080"
+    command: webserver
+    networks:
+      - elk
+    restart: unless-stopped
+
+  scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: custom_airflow:latest
+    user: "${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-50000}"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      airflow-init:
+        condition: service_completed_successfully
+      kafka:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow_db
+      AIRFLOW__CORE__FERNET_KEY: "Za58RK8KkukKWLZ3Mp7_UVwWWF7wLY2vPrspSq7VtMc="
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "False"
+      # Variables pour votre pipeline
+      KAFKA_BROKER_URL: kafka:9092
+      REDIS_HOST: my_redis
+      REDIS_PORT: 6379
+      ELASTICSEARCH_HOST: elasticsearch
+      ELASTICSEARCH_PORT: 9200
+      TOMORROW_API_KEY: ${TOMORROW_API_KEY}
+      #Spark
+      JAVA_HOME: /usr/lib/jvm/java-11-openjdk-amd64
+      SPARK_HOME: /opt/spark-3.3.1-bin-hadoop3
+      HADOOP_CONF_DIR: /opt/hadoop/etc/hadoop
+    volumes:
+      - ./collecte/api/airflow/dags:/opt/airflow/dags
+      - ./collecte/api/airflow/logs:/opt/airflow/logs
+      - ./collecte/api/kafka:/opt/airflow/kafka
+      - ./collecte/api:/opt/airflow/scripts
+    command: scheduler
+    networks:
+      - elk
+    restart: unless-stopped
+
+  # ============== HADOOP CLUSTER ==============
+  namenode:
+    image: apache/hadoop:3
+    container_name: namenode
+    hostname: namenode
+    command: ["hdfs", "namenode"]
+    networks:
+      - elk
+    ports:
+      - "9870:9870"
+      - "9000:9000"
+    env_file:
+      - ./config
+    environment:
+      - ENSURE_NAMENODE_DIR=/hadoop/dfs/name
+      - HADOOP_HOME=/opt/hadoop
+    volumes:
+      - hadoop_namenode:/hadoop/dfs/name
+    healthcheck:
+      test: ["CMD-SHELL", "hdfs dfsadmin -report || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+
+  datanode:
+    image: apache/hadoop:3
+    container_name: datanode
+    command: ["hdfs", "datanode"]
+    networks:
+      - elk
+    ports:
+      - "9864:9864"
+    env_file:
+      - ./config
+    environment:
+      - HADOOP_HOME=/opt/hadoop
+    volumes:
+      - hadoop_datanode:/hadoop/dfs/data
+    depends_on:
+      namenode:
+        condition: service_healthy
+
+  resourcemanager:
+    image: apache/hadoop:3
+    container_name: resourcemanager
+    hostname: resourcemanager
+    command: ["yarn", "resourcemanager"]
+    networks:
+      - elk
+    ports:
+      - "8088:8088"
+      - "8032:8032"
+    env_file:
+      - ./config
+    environment:
+      - HADOOP_HOME=/opt/hadoop
+    depends_on:
+      namenode:
+        condition: service_healthy
+
+  nodemanager:
+    image: apache/hadoop:3
+    container_name: nodemanager
+    command: ["yarn", "nodemanager"]
+    networks:
+      - elk
+    ports:
+      - "8042:8042"
+    env_file:
+      - ./config
+    environment:
+      - HADOOP_HOME=/opt/hadoop
+    volumes:
+      - hadoop_nodemanager_local:/hadoop/yarn/local
+      - hadoop_nodemanager_logs:/hadoop/yarn/logs
+    depends_on:
+      - namenode
+      - resourcemanager
+
+  historyserver:
+    image: apache/hadoop:3
+    container_name: historyserver
+    command: ["mapred", "historyserver"]
+    networks:
+      - elk
+    ports:
+      - "8188:8188"
+      - "19888:19888"
+    env_file:
+      - ./config
+    environment:
+      - HADOOP_HOME=/opt/hadoop
+    depends_on:
+      namenode:
+        condition: service_healthy
+
+  # ============== PYSPARK ==============
+  pyspark:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pyspark
+    networks:
+      - elk
+    ports:
+      - "4040:4040"  # Spark UI
+    env_file:
+      - ./config
+    environment:
+      - SPARK_HOME=/opt/spark
+      - HADOOP_HOME=/opt/hadoop
+      - HADOOP_USER_NAME=root
+      - JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+      # Configuration pour les services externes
+      - KAFKA_BROKERS=kafka:9092
+    
+    volumes:
+      - ./collecte/api/pyspark:/opt/pyspark
+      - ./collecte/api/pyspark:/app
+      - ./collecte/api/kafka:/opt/kafka
+    depends_on:
+      namenode:
+        condition: service_healthy
+      datanode:
+        condition: service_started
+      resourcemanager:
+        condition: service_started
+      nodemanager:
+        condition: service_started
+      kafka:
+        condition: service_healthy
+    command: >
+      bash -c "
+      echo 'Attente initialisation Hadoop...' &&
+      sleep 30 &&
+      echo 'Création répertoires HDFS si nécessaire...' &&
+      hdfs dfs -mkdir -p /tmp &&
+      hdfs dfs -mkdir -p /user &&
+      hdfs dfs -mkdir -p /weather &&
+      hdfs dfs -chmod 777 /tmp &&
+      hdfs dfs -chmod 777 /user &&
+      hdfs dfs -chmod 777 /weather &&
+      echo 'Conteneur PySpark prêt - en attente des jobs Spark' &&
+      tail -f /dev/null
+      "
+  grafana:
+    image: grafana/grafana:9.5.2
+    container_name: grafana
+    ports:
+      - "3000:3000"   # interface Grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-piechart-panel,redis-datasource
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    networks:
+      - elk
+  
+
+  postgres-dw:
+    image: postgres:13
+    container_name: postgres-dw
+    environment:
+      POSTGRES_USER: dwuser
+      POSTGRES_PASSWORD: dwpassword
+      POSTGRES_DB: weather_datawarehouse
+    volumes:
+      - postgres_dw_data:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+    restart: unless-stopped
+    networks:
+      - elk
+
+
+
+
+
+
+
+
+
+networks:
+  elk:
+    driver: bridge
+
+volumes:
+  esdata:
+    driver: local
+  redis_data:
+    driver: local
+  postgres_data:
+    driver: local
+  hadoop_namenode:
+    driver: local
+  hadoop_datanode:
+    driver: local
+  hadoop_nodemanager_local:
+    driver: local
+  hadoop_nodemanager_logs:
+    driver: local
+  grafana_data:
+    driver: local
+  postgres_dw_data:
+    driver: local

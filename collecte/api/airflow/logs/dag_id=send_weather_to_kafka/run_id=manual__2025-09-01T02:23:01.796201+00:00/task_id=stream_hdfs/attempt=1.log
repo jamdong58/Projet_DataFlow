@@ -1,0 +1,887 @@
+[2025-09-01 02:23:35,058] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: send_weather_to_kafka.stream_hdfs manual__2025-09-01T02:23:01.796201+00:00 [queued]>
+[2025-09-01 02:23:35,065] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: send_weather_to_kafka.stream_hdfs manual__2025-09-01T02:23:01.796201+00:00 [queued]>
+[2025-09-01 02:23:35,065] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2025-09-01 02:23:35,066] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2025-09-01 02:23:35,066] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2025-09-01 02:23:35,075] {taskinstance.py:1377} INFO - Executing <Task(BashOperator): stream_hdfs> on 2025-09-01 02:23:01.796201+00:00
+[2025-09-01 02:23:35,078] {standard_task_runner.py:52} INFO - Started process 4817 to run task
+[2025-09-01 02:23:35,081] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'send_weather_to_kafka', 'stream_hdfs', 'manual__2025-09-01T02:23:01.796201+00:00', '--job-id', '434', '--raw', '--subdir', 'DAGS_FOLDER/dag_meteo.py', '--cfg-path', '/tmp/tmppo7gs6ro', '--error-file', '/tmp/tmpv0lfkr54']
+[2025-09-01 02:23:35,082] {standard_task_runner.py:80} INFO - Job 434: Subtask stream_hdfs
+[2025-09-01 02:23:35,146] {task_command.py:369} INFO - Running <TaskInstance: send_weather_to_kafka.stream_hdfs manual__2025-09-01T02:23:01.796201+00:00 [running]> on host e66737cfc193
+[2025-09-01 02:23:35,240] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=send_weather_to_kafka
+AIRFLOW_CTX_TASK_ID=stream_hdfs
+AIRFLOW_CTX_EXECUTION_DATE=2025-09-01T02:23:01.796201+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2025-09-01T02:23:01.796201+00:00
+[2025-09-01 02:23:35,240] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2025-09-01 02:23:35,240] {subprocess.py:74} INFO - Running command: ['bash', '-c', '\n/home/***/.local/bin/spark-submit   --master local[*]   --conf spark.hadoop.fs.defaultFS=hdfs://namenode:9000   --conf spark.hadoop.dfs.client.use.datanode.hostname=true   --conf spark.sql.adaptive.enabled=false   --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.1   /opt/***/scripts/pyspark/streaming.py']
+[2025-09-01 02:23:35,252] {subprocess.py:85} INFO - Output:
+[2025-09-01 02:23:35,264] {subprocess.py:92} INFO - /opt/spark-3.3.1-bin-hadoop3/bin/load-spark-env.sh: line 68: ps: command not found
+[2025-09-01 02:23:36,569] {subprocess.py:92} INFO - :: loading settings :: url = jar:file:/opt/spark-3.3.1-bin-hadoop3/jars/ivy-2.5.0.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2025-09-01 02:23:36,638] {subprocess.py:92} INFO - Ivy Default Cache set to: /home/***/.ivy2/cache
+[2025-09-01 02:23:36,639] {subprocess.py:92} INFO - The jars for the packages stored in: /home/***/.ivy2/jars
+[2025-09-01 02:23:36,642] {subprocess.py:92} INFO - org.apache.spark#spark-sql-kafka-0-10_2.12 added as a dependency
+[2025-09-01 02:23:36,643] {subprocess.py:92} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-3544ce21-1b8d-44b8-b166-ce4d4405018d;1.0
+[2025-09-01 02:23:36,643] {subprocess.py:92} INFO - 	confs: [default]
+[2025-09-01 02:23:36,735] {subprocess.py:92} INFO - 	found org.apache.spark#spark-sql-kafka-0-10_2.12;3.3.1 in central
+[2025-09-01 02:23:36,769] {subprocess.py:92} INFO - 	found org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.3.1 in central
+[2025-09-01 02:23:36,788] {subprocess.py:92} INFO - 	found org.apache.kafka#kafka-clients;2.8.1 in central
+[2025-09-01 02:23:36,806] {subprocess.py:92} INFO - 	found org.lz4#lz4-java;1.8.0 in central
+[2025-09-01 02:23:36,821] {subprocess.py:92} INFO - 	found org.xerial.snappy#snappy-java;1.1.8.4 in central
+[2025-09-01 02:23:36,834] {subprocess.py:92} INFO - 	found org.slf4j#slf4j-api;1.7.32 in central
+[2025-09-01 02:23:36,851] {subprocess.py:92} INFO - 	found org.apache.hadoop#hadoop-client-runtime;3.3.2 in central
+[2025-09-01 02:23:36,861] {subprocess.py:92} INFO - 	found org.spark-project.spark#unused;1.0.0 in central
+[2025-09-01 02:23:36,880] {subprocess.py:92} INFO - 	found org.apache.hadoop#hadoop-client-api;3.3.2 in central
+[2025-09-01 02:23:36,897] {subprocess.py:92} INFO - 	found commons-logging#commons-logging;1.1.3 in central
+[2025-09-01 02:23:36,907] {subprocess.py:92} INFO - 	found com.google.code.findbugs#jsr305;3.0.0 in central
+[2025-09-01 02:23:36,917] {subprocess.py:92} INFO - 	found org.apache.commons#commons-pool2;2.11.1 in central
+[2025-09-01 02:23:36,933] {subprocess.py:92} INFO - :: resolution report :: resolve 282ms :: artifacts dl 8ms
+[2025-09-01 02:23:36,933] {subprocess.py:92} INFO - 	:: modules in use:
+[2025-09-01 02:23:36,933] {subprocess.py:92} INFO - 	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+[2025-09-01 02:23:36,933] {subprocess.py:92} INFO - 	commons-logging#commons-logging;1.1.3 from central in [default]
+[2025-09-01 02:23:36,933] {subprocess.py:92} INFO - 	org.apache.commons#commons-pool2;2.11.1 from central in [default]
+[2025-09-01 02:23:36,933] {subprocess.py:92} INFO - 	org.apache.hadoop#hadoop-client-api;3.3.2 from central in [default]
+[2025-09-01 02:23:36,933] {subprocess.py:92} INFO - 	org.apache.hadoop#hadoop-client-runtime;3.3.2 from central in [default]
+[2025-09-01 02:23:36,933] {subprocess.py:92} INFO - 	org.apache.kafka#kafka-clients;2.8.1 from central in [default]
+[2025-09-01 02:23:36,933] {subprocess.py:92} INFO - 	org.apache.spark#spark-sql-kafka-0-10_2.12;3.3.1 from central in [default]
+[2025-09-01 02:23:36,934] {subprocess.py:92} INFO - 	org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.3.1 from central in [default]
+[2025-09-01 02:23:36,934] {subprocess.py:92} INFO - 	org.lz4#lz4-java;1.8.0 from central in [default]
+[2025-09-01 02:23:36,934] {subprocess.py:92} INFO - 	org.slf4j#slf4j-api;1.7.32 from central in [default]
+[2025-09-01 02:23:36,934] {subprocess.py:92} INFO - 	org.spark-project.spark#unused;1.0.0 from central in [default]
+[2025-09-01 02:23:36,934] {subprocess.py:92} INFO - 	org.xerial.snappy#snappy-java;1.1.8.4 from central in [default]
+[2025-09-01 02:23:36,934] {subprocess.py:92} INFO - 	---------------------------------------------------------------------
+[2025-09-01 02:23:36,934] {subprocess.py:92} INFO - 	|                  |            modules            ||   artifacts   |
+[2025-09-01 02:23:36,934] {subprocess.py:92} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2025-09-01 02:23:36,934] {subprocess.py:92} INFO - 	---------------------------------------------------------------------
+[2025-09-01 02:23:36,934] {subprocess.py:92} INFO - 	|      default     |   12  |   0   |   0   |   0   ||   12  |   0   |
+[2025-09-01 02:23:36,934] {subprocess.py:92} INFO - 	---------------------------------------------------------------------
+[2025-09-01 02:23:36,938] {subprocess.py:92} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-3544ce21-1b8d-44b8-b166-ce4d4405018d
+[2025-09-01 02:23:36,938] {subprocess.py:92} INFO - 	confs: [default]
+[2025-09-01 02:23:36,943] {subprocess.py:92} INFO - 	0 artifacts copied, 12 already retrieved (0kB/5ms)
+[2025-09-01 02:23:37,092] {subprocess.py:92} INFO - 25/09/01 02:23:37 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-09-01 02:23:37,874] {subprocess.py:92} INFO - 25/09/01 02:23:37 INFO SparkContext: Running Spark version 3.3.1
+[2025-09-01 02:23:37,887] {subprocess.py:92} INFO - 25/09/01 02:23:37 INFO ResourceUtils: ==============================================================
+[2025-09-01 02:23:37,888] {subprocess.py:92} INFO - 25/09/01 02:23:37 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-09-01 02:23:37,888] {subprocess.py:92} INFO - 25/09/01 02:23:37 INFO ResourceUtils: ==============================================================
+[2025-09-01 02:23:37,888] {subprocess.py:92} INFO - 25/09/01 02:23:37 INFO SparkContext: Submitted application: KafkaToHDFSWeather
+[2025-09-01 02:23:37,903] {subprocess.py:92} INFO - 25/09/01 02:23:37 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-09-01 02:23:37,909] {subprocess.py:92} INFO - 25/09/01 02:23:37 INFO ResourceProfile: Limiting resource is cpu
+[2025-09-01 02:23:37,910] {subprocess.py:92} INFO - 25/09/01 02:23:37 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-09-01 02:23:37,948] {subprocess.py:92} INFO - 25/09/01 02:23:37 INFO SecurityManager: Changing view acls to: ***
+[2025-09-01 02:23:37,949] {subprocess.py:92} INFO - 25/09/01 02:23:37 INFO SecurityManager: Changing modify acls to: ***
+[2025-09-01 02:23:37,949] {subprocess.py:92} INFO - 25/09/01 02:23:37 INFO SecurityManager: Changing view acls groups to:
+[2025-09-01 02:23:37,950] {subprocess.py:92} INFO - 25/09/01 02:23:37 INFO SecurityManager: Changing modify acls groups to:
+[2025-09-01 02:23:37,951] {subprocess.py:92} INFO - 25/09/01 02:23:37 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(***); groups with view permissions: Set(); users  with modify permissions: Set(***); groups with modify permissions: Set()
+[2025-09-01 02:23:38,107] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Successfully started service 'sparkDriver' on port 33141.
+[2025-09-01 02:23:38,126] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkEnv: Registering MapOutputTracker
+[2025-09-01 02:23:38,149] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkEnv: Registering BlockManagerMaster
+[2025-09-01 02:23:38,160] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-09-01 02:23:38,161] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-09-01 02:23:38,164] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-09-01 02:23:38,179] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-364ea48d-55e3-43a7-99b5-b5c4f93cae6e
+[2025-09-01 02:23:38,190] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-09-01 02:23:38,201] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-09-01 02:23:38,336] {subprocess.py:92} INFO - 25/09/01 02:23:38 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2025-09-01 02:23:38,336] {subprocess.py:92} INFO - 25/09/01 02:23:38 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[2025-09-01 02:23:38,336] {subprocess.py:92} INFO - 25/09/01 02:23:38 WARN Utils: Service 'SparkUI' could not bind on port 4042. Attempting port 4043.
+[2025-09-01 02:23:38,342] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Successfully started service 'SparkUI' on port 4043.
+[2025-09-01 02:23:38,367] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar at spark://e66737cfc193:33141/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,367] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar at spark://e66737cfc193:33141/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,367] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.kafka_kafka-clients-2.8.1.jar at spark://e66737cfc193:33141/jars/org.apache.kafka_kafka-clients-2.8.1.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,367] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar at spark://e66737cfc193:33141/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,367] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar at spark://e66737cfc193:33141/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,367] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.spark-project.spark_unused-1.0.0.jar at spark://e66737cfc193:33141/jars/org.spark-project.spark_unused-1.0.0.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,367] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar at spark://e66737cfc193:33141/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,368] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar at spark://e66737cfc193:33141/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,368] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar at spark://e66737cfc193:33141/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,368] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.slf4j_slf4j-api-1.7.32.jar at spark://e66737cfc193:33141/jars/org.slf4j_slf4j-api-1.7.32.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,368] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar at spark://e66737cfc193:33141/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,368] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar at spark://e66737cfc193:33141/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,369] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar at file:///home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,370] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar
+[2025-09-01 02:23:38,378] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar at file:///home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,378] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar
+[2025-09-01 02:23:38,383] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.kafka_kafka-clients-2.8.1.jar at file:///home/***/.ivy2/jars/org.apache.kafka_kafka-clients-2.8.1.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,383] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.kafka_kafka-clients-2.8.1.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.kafka_kafka-clients-2.8.1.jar
+[2025-09-01 02:23:38,390] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added file file:///home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar at file:///home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,390] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Copying /home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/com.google.code.findbugs_jsr305-3.0.0.jar
+[2025-09-01 02:23:38,394] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar at file:///home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,394] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.commons_commons-pool2-2.11.1.jar
+[2025-09-01 02:23:38,399] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.spark-project.spark_unused-1.0.0.jar at file:///home/***/.ivy2/jars/org.spark-project.spark_unused-1.0.0.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,399] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Copying /home/***/.ivy2/jars/org.spark-project.spark_unused-1.0.0.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.spark-project.spark_unused-1.0.0.jar
+[2025-09-01 02:23:38,403] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar at file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,403] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar
+[2025-09-01 02:23:38,424] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar at file:///home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,424] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Copying /home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.lz4_lz4-java-1.8.0.jar
+[2025-09-01 02:23:38,428] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar at file:///home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,428] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Copying /home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.xerial.snappy_snappy-java-1.1.8.4.jar
+[2025-09-01 02:23:38,432] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.slf4j_slf4j-api-1.7.32.jar at file:///home/***/.ivy2/jars/org.slf4j_slf4j-api-1.7.32.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,433] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Copying /home/***/.ivy2/jars/org.slf4j_slf4j-api-1.7.32.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.slf4j_slf4j-api-1.7.32.jar
+[2025-09-01 02:23:38,436] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar at file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,436] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.hadoop_hadoop-client-api-3.3.2.jar
+[2025-09-01 02:23:38,452] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO SparkContext: Added file file:///home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar at file:///home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,452] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Copying /home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/commons-logging_commons-logging-1.1.3.jar
+[2025-09-01 02:23:38,495] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Starting executor ID driver on host e66737cfc193
+[2025-09-01 02:23:38,499] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+[2025-09-01 02:23:38,505] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching file:///home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,515] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /home/***/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/commons-logging_commons-logging-1.1.3.jar
+[2025-09-01 02:23:38,519] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.spark-project.spark_unused-1.0.0.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,519] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /home/***/.ivy2/jars/org.spark-project.spark_unused-1.0.0.jar has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.spark-project.spark_unused-1.0.0.jar
+[2025-09-01 02:23:38,523] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,526] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /home/***/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar
+[2025-09-01 02:23:38,530] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,540] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.hadoop_hadoop-client-api-3.3.2.jar
+[2025-09-01 02:23:38,543] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,558] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /home/***/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar
+[2025-09-01 02:23:38,561] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.slf4j_slf4j-api-1.7.32.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,561] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /home/***/.ivy2/jars/org.slf4j_slf4j-api-1.7.32.jar has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.slf4j_slf4j-api-1.7.32.jar
+[2025-09-01 02:23:38,565] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,566] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /home/***/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.lz4_lz4-java-1.8.0.jar
+[2025-09-01 02:23:38,570] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,570] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /home/***/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.commons_commons-pool2-2.11.1.jar
+[2025-09-01 02:23:38,573] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching file:///home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,574] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /home/***/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/com.google.code.findbugs_jsr305-3.0.0.jar
+[2025-09-01 02:23:38,577] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,578] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /home/***/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar
+[2025-09-01 02:23:38,581] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.apache.kafka_kafka-clients-2.8.1.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,586] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /home/***/.ivy2/jars/org.apache.kafka_kafka-clients-2.8.1.jar has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.kafka_kafka-clients-2.8.1.jar
+[2025-09-01 02:23:38,589] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching file:///home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,590] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /home/***/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.xerial.snappy_snappy-java-1.1.8.4.jar
+[2025-09-01 02:23:38,597] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching spark://e66737cfc193:33141/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,625] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO TransportClientFactory: Successfully created connection to e66737cfc193/172.20.0.18:33141 after 19 ms (0 ms spent in bootstraps)
+[2025-09-01 02:23:38,628] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Fetching spark://e66737cfc193:33141/jars/commons-logging_commons-logging-1.1.3.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp4228004496689147128.tmp
+[2025-09-01 02:23:38,652] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp4228004496689147128.tmp has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/commons-logging_commons-logging-1.1.3.jar
+[2025-09-01 02:23:38,657] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Adding file:/tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/commons-logging_commons-logging-1.1.3.jar to class loader
+[2025-09-01 02:23:38,657] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching spark://e66737cfc193:33141/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,657] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Fetching spark://e66737cfc193:33141/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp4702527072382451575.tmp
+[2025-09-01 02:23:38,659] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp4702527072382451575.tmp has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar
+[2025-09-01 02:23:38,663] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Adding file:/tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.3.1.jar to class loader
+[2025-09-01 02:23:38,663] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching spark://e66737cfc193:33141/jars/org.slf4j_slf4j-api-1.7.32.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,663] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Fetching spark://e66737cfc193:33141/jars/org.slf4j_slf4j-api-1.7.32.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp9697374636300139604.tmp
+[2025-09-01 02:23:38,666] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp9697374636300139604.tmp has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.slf4j_slf4j-api-1.7.32.jar
+[2025-09-01 02:23:38,670] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Adding file:/tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.slf4j_slf4j-api-1.7.32.jar to class loader
+[2025-09-01 02:23:38,670] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching spark://e66737cfc193:33141/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,671] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Fetching spark://e66737cfc193:33141/jars/org.lz4_lz4-java-1.8.0.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp4510777297493705504.tmp
+[2025-09-01 02:23:38,676] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp4510777297493705504.tmp has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.lz4_lz4-java-1.8.0.jar
+[2025-09-01 02:23:38,680] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Adding file:/tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.lz4_lz4-java-1.8.0.jar to class loader
+[2025-09-01 02:23:38,680] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching spark://e66737cfc193:33141/jars/org.apache.kafka_kafka-clients-2.8.1.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,680] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Fetching spark://e66737cfc193:33141/jars/org.apache.kafka_kafka-clients-2.8.1.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp10487700254776248825.tmp
+[2025-09-01 02:23:38,699] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp10487700254776248825.tmp has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.kafka_kafka-clients-2.8.1.jar
+[2025-09-01 02:23:38,707] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Adding file:/tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.kafka_kafka-clients-2.8.1.jar to class loader
+[2025-09-01 02:23:38,707] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching spark://e66737cfc193:33141/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,708] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Fetching spark://e66737cfc193:33141/jars/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp10729349042070459698.tmp
+[2025-09-01 02:23:38,784] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp10729349042070459698.tmp has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar
+[2025-09-01 02:23:38,847] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Adding file:/tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.hadoop_hadoop-client-runtime-3.3.2.jar to class loader
+[2025-09-01 02:23:38,848] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching spark://e66737cfc193:33141/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,849] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Fetching spark://e66737cfc193:33141/jars/org.apache.hadoop_hadoop-client-api-3.3.2.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp9391642048057579499.tmp
+[2025-09-01 02:23:38,963] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp9391642048057579499.tmp has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.hadoop_hadoop-client-api-3.3.2.jar
+[2025-09-01 02:23:38,970] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Adding file:/tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.hadoop_hadoop-client-api-3.3.2.jar to class loader
+[2025-09-01 02:23:38,970] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching spark://e66737cfc193:33141/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,971] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Fetching spark://e66737cfc193:33141/jars/com.google.code.findbugs_jsr305-3.0.0.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp5766011680183294982.tmp
+[2025-09-01 02:23:38,972] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp5766011680183294982.tmp has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/com.google.code.findbugs_jsr305-3.0.0.jar
+[2025-09-01 02:23:38,976] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Adding file:/tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/com.google.code.findbugs_jsr305-3.0.0.jar to class loader
+[2025-09-01 02:23:38,976] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching spark://e66737cfc193:33141/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,976] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Fetching spark://e66737cfc193:33141/jars/org.apache.commons_commons-pool2-2.11.1.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp7141638013973588168.tmp
+[2025-09-01 02:23:38,978] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp7141638013973588168.tmp has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.commons_commons-pool2-2.11.1.jar
+[2025-09-01 02:23:38,982] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Adding file:/tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.commons_commons-pool2-2.11.1.jar to class loader
+[2025-09-01 02:23:38,982] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching spark://e66737cfc193:33141/jars/org.spark-project.spark_unused-1.0.0.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,983] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Fetching spark://e66737cfc193:33141/jars/org.spark-project.spark_unused-1.0.0.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp2604513987553772842.tmp
+[2025-09-01 02:23:38,984] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp2604513987553772842.tmp has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.spark-project.spark_unused-1.0.0.jar
+[2025-09-01 02:23:38,987] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Adding file:/tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.spark-project.spark_unused-1.0.0.jar to class loader
+[2025-09-01 02:23:38,987] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching spark://e66737cfc193:33141/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,988] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Fetching spark://e66737cfc193:33141/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp5467953740988768447.tmp
+[2025-09-01 02:23:38,990] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp5467953740988768447.tmp has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar
+[2025-09-01 02:23:38,994] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Adding file:/tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.apache.spark_spark-sql-kafka-0-10_2.12-3.3.1.jar to class loader
+[2025-09-01 02:23:38,994] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Executor: Fetching spark://e66737cfc193:33141/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar with timestamp 1756693417868
+[2025-09-01 02:23:38,995] {subprocess.py:92} INFO - 25/09/01 02:23:38 INFO Utils: Fetching spark://e66737cfc193:33141/jars/org.xerial.snappy_snappy-java-1.1.8.4.jar to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp63701195138755582.tmp
+[2025-09-01 02:23:39,004] {subprocess.py:92} INFO - 25/09/01 02:23:39 INFO Utils: /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/fetchFileTemp63701195138755582.tmp has been previously copied to /tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.xerial.snappy_snappy-java-1.1.8.4.jar
+[2025-09-01 02:23:39,008] {subprocess.py:92} INFO - 25/09/01 02:23:39 INFO Executor: Adding file:/tmp/spark-c7b0e2fa-e11d-492c-bce7-2c7c0a03fa2b/userFiles-f889f8d6-9e07-4ccc-bf39-924737ea204d/org.xerial.snappy_snappy-java-1.1.8.4.jar to class loader
+[2025-09-01 02:23:39,016] {subprocess.py:92} INFO - 25/09/01 02:23:39 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 34043.
+[2025-09-01 02:23:39,017] {subprocess.py:92} INFO - 25/09/01 02:23:39 INFO NettyBlockTransferService: Server created on e66737cfc193:34043
+[2025-09-01 02:23:39,019] {subprocess.py:92} INFO - 25/09/01 02:23:39 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-09-01 02:23:39,027] {subprocess.py:92} INFO - 25/09/01 02:23:39 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, e66737cfc193, 34043, None)
+[2025-09-01 02:23:39,031] {subprocess.py:92} INFO - 25/09/01 02:23:39 INFO BlockManagerMasterEndpoint: Registering block manager e66737cfc193:34043 with 434.4 MiB RAM, BlockManagerId(driver, e66737cfc193, 34043, None)
+[2025-09-01 02:23:39,034] {subprocess.py:92} INFO - 25/09/01 02:23:39 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, e66737cfc193, 34043, None)
+[2025-09-01 02:23:39,036] {subprocess.py:92} INFO - 25/09/01 02:23:39 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, e66737cfc193, 34043, None)
+[2025-09-01 02:23:39,326] {subprocess.py:92} INFO - Connexion à Kafka...
+[2025-09-01 02:23:40,962] {subprocess.py:92} INFO - Connexion Kafka réussie (kafka:9092)
+[2025-09-01 02:23:40,962] {subprocess.py:92} INFO - Transformation des données JSON...
+[2025-09-01 02:23:41,164] {subprocess.py:92} INFO - Démarrage du streaming vers HDFS...
+[2025-09-01 02:23:41,727] {subprocess.py:92} INFO - Streaming actif - Données météo sauvegardées dans HDFS:/data/weather
+[2025-09-01 04:44:21,215] {base_job.py:229} ERROR - LocalTaskJob heartbeat got an exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3141, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 301, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 755, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 419, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 259, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 247, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 362, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 605, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 599, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 583, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "postgres" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/jobs/base_job.py", line 219, in heartbeat
+    session.merge(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2877, in merge
+    _resolve_conflict_map=_resolve_conflict_map,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2950, in _merge
+    merged = self.get(mapper.class_, key[1], identity_token=key[2])
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2702, in get
+    identity_token=identity_token,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2800, in _get_impl
+    load_options=load_options,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/loading.py", line 535, in load_on_pk_identity
+    bind_arguments=bind_arguments,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1669, in execute
+    conn = self._connection_for_bind(bind, close_with_result=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1520, in _connection_for_bind
+    engine, execution_options
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3095, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 91, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3174, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3145, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2004, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3141, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 301, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 755, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 419, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 259, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 247, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 362, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 605, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 599, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 583, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: http://sqlalche.me/e/14/e3q8)
+[2025-09-01 04:44:59,222] {base_job.py:229} ERROR - LocalTaskJob heartbeat got an exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3141, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 301, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 755, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 419, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 259, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 247, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 362, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 605, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 599, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 583, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "postgres" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/jobs/base_job.py", line 201, in heartbeat
+    session.merge(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2877, in merge
+    _resolve_conflict_map=_resolve_conflict_map,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2950, in _merge
+    merged = self.get(mapper.class_, key[1], identity_token=key[2])
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2702, in get
+    identity_token=identity_token,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2800, in _get_impl
+    load_options=load_options,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/loading.py", line 535, in load_on_pk_identity
+    bind_arguments=bind_arguments,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1669, in execute
+    conn = self._connection_for_bind(bind, close_with_result=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1520, in _connection_for_bind
+    engine, execution_options
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3095, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 91, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3174, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3145, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2004, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3141, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 301, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 755, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 419, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 259, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 247, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 362, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 605, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 599, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 583, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: http://sqlalche.me/e/14/e3q8)
+[2025-09-01 04:45:11,183] {subprocess.py:92} INFO - 25/09/01 04:44:59 WARN NettyRpcEnv: Ignored failure: java.util.concurrent.TimeoutException: Cannot receive any reply from e66737cfc193:33141 in 10000 milliseconds
+[2025-09-01 04:46:24,618] {subprocess.py:92} INFO - 25/09/01 04:45:42 WARN Executor: Issue communicating with driver in heartbeater
+[2025-09-01 04:46:25,290] {subprocess.py:92} INFO - org.apache.spark.rpc.RpcTimeoutException: Futures timed out after [10000 milliseconds]. This timeout is controlled by spark.executor.heartbeatInterval
+[2025-09-01 04:46:25,290] {subprocess.py:92} INFO - 	at org.apache.spark.rpc.RpcTimeout.org$apache$spark$rpc$RpcTimeout$$createRpcTimeoutException(RpcTimeout.scala:47)
+[2025-09-01 04:46:25,290] {subprocess.py:92} INFO - 	at org.apache.spark.rpc.RpcTimeout$$anonfun$addMessageIfTimeout$1.applyOrElse(RpcTimeout.scala:62)
+[2025-09-01 04:46:25,290] {subprocess.py:92} INFO - 	at org.apache.spark.rpc.RpcTimeout$$anonfun$addMessageIfTimeout$1.applyOrElse(RpcTimeout.scala:58)
+[2025-09-01 04:46:25,290] {subprocess.py:92} INFO - 	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:38)
+[2025-09-01 04:46:25,290] {subprocess.py:92} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:76)
+[2025-09-01 04:46:25,290] {subprocess.py:92} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:103)
+[2025-09-01 04:46:25,291] {subprocess.py:92} INFO - 	at org.apache.spark.executor.Executor.reportHeartBeat(Executor.scala:1053)
+[2025-09-01 04:46:25,291] {subprocess.py:92} INFO - 	at org.apache.spark.executor.Executor.$anonfun$heartbeater$1(Executor.scala:238)
+[2025-09-01 04:46:25,291] {subprocess.py:92} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2025-09-01 04:46:25,291] {subprocess.py:92} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:2066)
+[2025-09-01 04:46:25,291] {subprocess.py:92} INFO - 	at org.apache.spark.Heartbeater$$anon$1.run(Heartbeater.scala:46)
+[2025-09-01 04:46:25,314] {subprocess.py:92} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+[2025-09-01 04:46:25,314] {subprocess.py:92} INFO - 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+[2025-09-01 04:46:25,314] {subprocess.py:92} INFO - 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+[2025-09-01 04:46:25,315] {subprocess.py:92} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+[2025-09-01 04:46:25,315] {subprocess.py:92} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+[2025-09-01 04:46:25,315] {subprocess.py:92} INFO - 	at java.base/java.lang.Thread.run(Thread.java:829)
+[2025-09-01 04:46:25,315] {subprocess.py:92} INFO - Caused by: java.util.concurrent.TimeoutException: Futures timed out after [10000 milliseconds]
+[2025-09-01 04:46:25,315] {subprocess.py:92} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.ready(Promise.scala:259)
+[2025-09-01 04:46:25,315] {subprocess.py:92} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:263)
+[2025-09-01 04:46:25,315] {subprocess.py:92} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:293)
+[2025-09-01 04:46:25,315] {subprocess.py:92} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2025-09-01 04:46:25,315] {subprocess.py:92} INFO - 	... 12 more
+[2025-09-01 04:47:41,079] {base_job.py:229} ERROR - LocalTaskJob heartbeat got an exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3141, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 301, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 755, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 419, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 259, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 247, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 362, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 605, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 599, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 583, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "postgres" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/jobs/base_job.py", line 225, in heartbeat
+    self.heartbeat_callback(session=session)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 68, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/jobs/local_task_job.py", line 186, in heartbeat_callback
+    self.task_instance.refresh_from_db()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 71, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 873, in refresh_from_db
+    ti = qry.first()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2734, in first
+    return self.limit(1)._iter().first()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2821, in _iter
+    execution_options={"_sa_orm_load_options": self.load_options},
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1669, in execute
+    conn = self._connection_for_bind(bind, close_with_result=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1520, in _connection_for_bind
+    engine, execution_options
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3095, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 91, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3174, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3145, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2004, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3141, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 301, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 755, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 419, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 259, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 247, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 362, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 605, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 599, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 583, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: http://sqlalche.me/e/14/e3q8)
+[2025-09-01 04:50:45,517] {subprocess.py:92} INFO - 25/09/01 04:50:45 WARN Executor: Issue communicating with driver in heartbeater
+[2025-09-01 04:50:45,535] {subprocess.py:92} INFO - org.apache.spark.rpc.RpcTimeoutException: Futures timed out after [10000 milliseconds]. This timeout is controlled by spark.executor.heartbeatInterval
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at org.apache.spark.rpc.RpcTimeout.org$apache$spark$rpc$RpcTimeout$$createRpcTimeoutException(RpcTimeout.scala:47)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at org.apache.spark.rpc.RpcTimeout$$anonfun$addMessageIfTimeout$1.applyOrElse(RpcTimeout.scala:62)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at org.apache.spark.rpc.RpcTimeout$$anonfun$addMessageIfTimeout$1.applyOrElse(RpcTimeout.scala:58)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:38)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:76)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:103)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at org.apache.spark.executor.Executor.reportHeartBeat(Executor.scala:1053)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at org.apache.spark.executor.Executor.$anonfun$heartbeater$1(Executor.scala:238)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:2066)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at org.apache.spark.Heartbeater$$anon$1.run(Heartbeater.scala:46)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at java.base/java.lang.Thread.run(Thread.java:829)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - Caused by: java.util.concurrent.TimeoutException: Futures timed out after [10000 milliseconds]
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.ready(Promise.scala:259)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:263)
+[2025-09-01 04:50:45,536] {subprocess.py:92} INFO - 	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:293)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	... 12 more
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 25/09/01 04:50:45 WARN NettyRpcEnv: Ignored failure: java.util.concurrent.TimeoutException: Cannot receive any reply from e66737cfc193:33141 in 10000 milliseconds
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 25/09/01 04:50:45 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-359b5a93-7526-4ca8-af32-7d3b0197313d-629405726-driver-0-1, groupId=spark-kafka-source-359b5a93-7526-4ca8-af32-7d3b0197313d-629405726-driver-0] Error connecting to node kafka:9092 (id: 2147483646 rack: null)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - java.net.UnknownHostException: kafka: Temporary failure in name resolution
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:930)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1543)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:848)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1386)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1307)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:513)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:467)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:985)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:311)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.tryConnect(ConsumerNetworkClient.java:575)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$FindCoordinatorResponseHandler.onSuccess(AbstractCoordinator.java:851)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$FindCoordinatorResponseHandler.onSuccess(AbstractCoordinator.java:832)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.internals.RequestFuture$1.onSuccess(RequestFuture.java:206)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.internals.RequestFuture.fireSuccess(RequestFuture.java:169)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.internals.RequestFuture.complete(RequestFuture.java:129)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient$RequestFutureCompletionHandler.fireCompletion(ConsumerNetworkClient.java:602)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.firePendingCompletedRequests(ConsumerNetworkClient.java:412)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:297)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:306)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:1372)
+[2025-09-01 04:50:45,537] {subprocess.py:92} INFO - 25/09/01 04:50:45 WARN KafkaOffsetReaderConsumer: Error in attempt 1 getting Kafka offsets:
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - org.apache.kafka.common.errors.TimeoutException: Timeout of 60000ms expired before the position for partition weather_dakar-0 could be determined
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 25/09/01 04:50:45 WARN NetworkClient: [Consumer clientId=consumer-spark-kafka-source-359b5a93-7526-4ca8-af32-7d3b0197313d-629405726-driver-0-1, groupId=spark-kafka-source-359b5a93-7526-4ca8-af32-7d3b0197313d-629405726-driver-0] Error connecting to node kafka:9092 (id: 2147483646 rack: null)
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - java.net.UnknownHostException: kafka
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:797)
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1386)
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1307)
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:111)
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:513)
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:467)
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:172)
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:985)
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:311)
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.trySend(ConsumerNetworkClient.java:498)
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:255)
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:306)
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.maybeLeaveGroup(AbstractCoordinator.java:1053)
+[2025-09-01 04:50:45,538] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:1399)
+[2025-09-01 04:50:45,544] {subprocess.py:92} INFO - 25/09/01 04:50:45 WARN HeartbeatReceiver: Removing executor driver with no recent heartbeats: 174108 ms exceeds timeout 120000 ms
+[2025-09-01 04:50:45,599] {subprocess.py:92} INFO - 25/09/01 04:50:45 WARN SparkContext: Killing executors is not supported by current scheduler.
+[2025-09-01 04:50:12,702] {base_job.py:229} ERROR - LocalTaskJob heartbeat got an exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3141, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 301, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 755, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 419, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 259, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 247, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 362, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 605, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 599, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 583, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "postgres" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/jobs/base_job.py", line 201, in heartbeat
+    session.merge(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2877, in merge
+    _resolve_conflict_map=_resolve_conflict_map,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2950, in _merge
+    merged = self.get(mapper.class_, key[1], identity_token=key[2])
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2702, in get
+    identity_token=identity_token,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2800, in _get_impl
+    load_options=load_options,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/loading.py", line 535, in load_on_pk_identity
+    bind_arguments=bind_arguments,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1669, in execute
+    conn = self._connection_for_bind(bind, close_with_result=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1520, in _connection_for_bind
+    engine, execution_options
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3095, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 91, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3174, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3145, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2004, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3141, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 301, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 755, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 419, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 259, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 247, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 362, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 605, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 599, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 578, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 583, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: http://sqlalche.me/e/14/e3q8)
+[2025-09-01 04:50:46,550] {subprocess.py:92} INFO - 25/09/01 04:50:46 WARN ClientUtils: Couldn't resolve server kafka:9092 from bootstrap.servers as DNS resolution failed for kafka
+[2025-09-01 04:50:46,554] {subprocess.py:92} INFO - 25/09/01 04:50:46 WARN KafkaOffsetReaderConsumer: Error in attempt 2 getting Kafka offsets:
+[2025-09-01 04:50:46,554] {subprocess.py:92} INFO - org.apache.kafka.common.KafkaException: Failed to construct kafka consumer
+[2025-09-01 04:50:46,554] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:823)
+[2025-09-01 04:50:46,554] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:665)
+[2025-09-01 04:50:46,555] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:613)
+[2025-09-01 04:50:46,555] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.SubscribeStrategy.createConsumer(ConsumerStrategy.scala:107)
+[2025-09-01 04:50:46,555] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.consumer(KafkaOffsetReaderConsumer.scala:83)
+[2025-09-01 04:50:46,555] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.$anonfun$partitionsAssignedToConsumer$2(KafkaOffsetReaderConsumer.scala:549)
+[2025-09-01 04:50:46,555] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.$anonfun$withRetriesWithoutInterrupt$1(KafkaOffsetReaderConsumer.scala:594)
+[2025-09-01 04:50:46,555] {subprocess.py:92} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2025-09-01 04:50:46,555] {subprocess.py:92} INFO - 	at org.apache.spark.util.UninterruptibleThread.runUninterruptibly(UninterruptibleThread.scala:77)
+[2025-09-01 04:50:46,555] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.withRetriesWithoutInterrupt(KafkaOffsetReaderConsumer.scala:593)
+[2025-09-01 04:50:46,555] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.$anonfun$partitionsAssignedToConsumer$1(KafkaOffsetReaderConsumer.scala:547)
+[2025-09-01 04:50:46,555] {subprocess.py:92} INFO - 	at org.apache.spark.util.UninterruptibleThreadRunner.runUninterruptibly(UninterruptibleThreadRunner.scala:48)
+[2025-09-01 04:50:46,555] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.partitionsAssignedToConsumer(KafkaOffsetReaderConsumer.scala:547)
+[2025-09-01 04:50:46,556] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.fetchLatestOffsets(KafkaOffsetReaderConsumer.scala:344)
+[2025-09-01 04:50:46,556] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.latestOffset(KafkaMicroBatchStream.scala:132)
+[2025-09-01 04:50:46,556] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:449)
+[2025-09-01 04:50:46,556] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:375)
+[2025-09-01 04:50:46,556] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:373)
+[2025-09-01 04:50:46,556] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:68)
+[2025-09-01 04:50:46,556] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:448)
+[2025-09-01 04:50:46,556] {subprocess.py:92} INFO - 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+[2025-09-01 04:50:46,556] {subprocess.py:92} INFO - 	at scala.collection.Iterator.foreach(Iterator.scala:943)
+[2025-09-01 04:50:46,556] {subprocess.py:92} INFO - 	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+[2025-09-01 04:50:46,557] {subprocess.py:92} INFO - 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+[2025-09-01 04:50:46,557] {subprocess.py:92} INFO - 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[2025-09-01 04:50:46,557] {subprocess.py:92} INFO - 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[2025-09-01 04:50:46,557] {subprocess.py:92} INFO - 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[2025-09-01 04:50:46,557] {subprocess.py:92} INFO - 	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+[2025-09-01 04:50:46,557] {subprocess.py:92} INFO - 	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+[2025-09-01 04:50:46,557] {subprocess.py:92} INFO - 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[2025-09-01 04:50:46,557] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:437)
+[2025-09-01 04:50:46,557] {subprocess.py:92} INFO - 	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+[2025-09-01 04:50:46,557] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:693)
+[2025-09-01 04:50:46,557] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:433)
+[2025-09-01 04:50:46,558] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:238)
+[2025-09-01 04:50:46,558] {subprocess.py:92} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2025-09-01 04:50:46,558] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:375)
+[2025-09-01 04:50:46,558] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:373)
+[2025-09-01 04:50:46,558] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:68)
+[2025-09-01 04:50:46,558] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:219)
+[2025-09-01 04:50:46,558] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2025-09-01 04:50:46,558] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:213)
+[2025-09-01 04:50:46,558] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:307)
+[2025-09-01 04:50:46,558] {subprocess.py:92} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2025-09-01 04:50:46,558] {subprocess.py:92} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:779)
+[2025-09-01 04:50:46,559] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:285)
+[2025-09-01 04:50:46,559] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:208)
+[2025-09-01 04:50:46,559] {subprocess.py:92} INFO - Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+[2025-09-01 04:50:46,559] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+[2025-09-01 04:50:46,559] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+[2025-09-01 04:50:46,559] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:731)
+[2025-09-01 04:50:46,559] {subprocess.py:92} INFO - 	... 46 more
+[2025-09-01 04:50:47,581] {subprocess.py:92} INFO - 25/09/01 04:50:47 WARN ClientUtils: Couldn't resolve server kafka:9092 from bootstrap.servers as DNS resolution failed for kafka
+[2025-09-01 04:50:47,583] {subprocess.py:92} INFO - 25/09/01 04:50:47 WARN KafkaOffsetReaderConsumer: Error in attempt 3 getting Kafka offsets:
+[2025-09-01 04:50:47,583] {subprocess.py:92} INFO - org.apache.kafka.common.KafkaException: Failed to construct kafka consumer
+[2025-09-01 04:50:47,583] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:823)
+[2025-09-01 04:50:47,583] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:665)
+[2025-09-01 04:50:47,583] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:613)
+[2025-09-01 04:50:47,583] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.SubscribeStrategy.createConsumer(ConsumerStrategy.scala:107)
+[2025-09-01 04:50:47,583] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.consumer(KafkaOffsetReaderConsumer.scala:83)
+[2025-09-01 04:50:47,583] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.$anonfun$partitionsAssignedToConsumer$2(KafkaOffsetReaderConsumer.scala:549)
+[2025-09-01 04:50:47,584] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.$anonfun$withRetriesWithoutInterrupt$1(KafkaOffsetReaderConsumer.scala:594)
+[2025-09-01 04:50:47,584] {subprocess.py:92} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2025-09-01 04:50:47,584] {subprocess.py:92} INFO - 	at org.apache.spark.util.UninterruptibleThread.runUninterruptibly(UninterruptibleThread.scala:77)
+[2025-09-01 04:50:47,586] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.withRetriesWithoutInterrupt(KafkaOffsetReaderConsumer.scala:593)
+[2025-09-01 04:50:47,586] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.$anonfun$partitionsAssignedToConsumer$1(KafkaOffsetReaderConsumer.scala:547)
+[2025-09-01 04:50:47,586] {subprocess.py:92} INFO - 	at org.apache.spark.util.UninterruptibleThreadRunner.runUninterruptibly(UninterruptibleThreadRunner.scala:48)
+[2025-09-01 04:50:47,587] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.partitionsAssignedToConsumer(KafkaOffsetReaderConsumer.scala:547)
+[2025-09-01 04:50:47,587] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.fetchLatestOffsets(KafkaOffsetReaderConsumer.scala:344)
+[2025-09-01 04:50:47,587] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.latestOffset(KafkaMicroBatchStream.scala:132)
+[2025-09-01 04:50:47,587] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:449)
+[2025-09-01 04:50:47,587] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:375)
+[2025-09-01 04:50:47,587] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:373)
+[2025-09-01 04:50:47,587] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:68)
+[2025-09-01 04:50:47,587] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:448)
+[2025-09-01 04:50:47,587] {subprocess.py:92} INFO - 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+[2025-09-01 04:50:47,587] {subprocess.py:92} INFO - 	at scala.collection.Iterator.foreach(Iterator.scala:943)
+[2025-09-01 04:50:47,588] {subprocess.py:92} INFO - 	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+[2025-09-01 04:50:47,588] {subprocess.py:92} INFO - 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+[2025-09-01 04:50:47,588] {subprocess.py:92} INFO - 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[2025-09-01 04:50:47,588] {subprocess.py:92} INFO - 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[2025-09-01 04:50:47,589] {subprocess.py:92} INFO - 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[2025-09-01 04:50:47,591] {subprocess.py:92} INFO - 	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+[2025-09-01 04:50:47,593] {subprocess.py:92} INFO - 	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+[2025-09-01 04:50:47,593] {subprocess.py:92} INFO - 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[2025-09-01 04:50:47,593] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:437)
+[2025-09-01 04:50:47,593] {subprocess.py:92} INFO - 	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+[2025-09-01 04:50:47,593] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:693)
+[2025-09-01 04:50:47,593] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:433)
+[2025-09-01 04:50:47,593] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:238)
+[2025-09-01 04:50:47,594] {subprocess.py:92} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2025-09-01 04:50:47,594] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:375)
+[2025-09-01 04:50:47,594] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:373)
+[2025-09-01 04:50:47,594] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:68)
+[2025-09-01 04:50:47,594] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:219)
+[2025-09-01 04:50:47,594] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2025-09-01 04:50:47,594] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:213)
+[2025-09-01 04:50:47,594] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:307)
+[2025-09-01 04:50:47,594] {subprocess.py:92} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2025-09-01 04:50:47,594] {subprocess.py:92} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:779)
+[2025-09-01 04:50:47,595] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:285)
+[2025-09-01 04:50:47,595] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:208)
+[2025-09-01 04:50:47,595] {subprocess.py:92} INFO - Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+[2025-09-01 04:50:47,595] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+[2025-09-01 04:50:47,597] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+[2025-09-01 04:50:47,597] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:731)
+[2025-09-01 04:50:47,597] {subprocess.py:92} INFO - 	... 46 more
+[2025-09-01 04:50:48,600] {subprocess.py:92} INFO - 25/09/01 04:50:48 ERROR MicroBatchExecution: Query [id = 8bb46a74-6ffa-4764-a9c6-2e4a331d8211, runId = 27871f4e-dbcc-496d-984a-83e12407a92d] terminated with error
+[2025-09-01 04:50:48,600] {subprocess.py:92} INFO - org.apache.kafka.common.KafkaException: Failed to construct kafka consumer
+[2025-09-01 04:50:48,600] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:823)
+[2025-09-01 04:50:48,600] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:665)
+[2025-09-01 04:50:48,600] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:613)
+[2025-09-01 04:50:48,600] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.SubscribeStrategy.createConsumer(ConsumerStrategy.scala:107)
+[2025-09-01 04:50:48,601] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.consumer(KafkaOffsetReaderConsumer.scala:83)
+[2025-09-01 04:50:48,601] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.$anonfun$partitionsAssignedToConsumer$2(KafkaOffsetReaderConsumer.scala:549)
+[2025-09-01 04:50:48,601] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.$anonfun$withRetriesWithoutInterrupt$1(KafkaOffsetReaderConsumer.scala:594)
+[2025-09-01 04:50:48,603] {subprocess.py:92} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2025-09-01 04:50:48,603] {subprocess.py:92} INFO - 	at org.apache.spark.util.UninterruptibleThread.runUninterruptibly(UninterruptibleThread.scala:77)
+[2025-09-01 04:50:48,603] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.withRetriesWithoutInterrupt(KafkaOffsetReaderConsumer.scala:593)
+[2025-09-01 04:50:48,603] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.$anonfun$partitionsAssignedToConsumer$1(KafkaOffsetReaderConsumer.scala:547)
+[2025-09-01 04:50:48,603] {subprocess.py:92} INFO - 	at org.apache.spark.util.UninterruptibleThreadRunner.runUninterruptibly(UninterruptibleThreadRunner.scala:48)
+[2025-09-01 04:50:48,604] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.partitionsAssignedToConsumer(KafkaOffsetReaderConsumer.scala:547)
+[2025-09-01 04:50:48,604] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaOffsetReaderConsumer.fetchLatestOffsets(KafkaOffsetReaderConsumer.scala:344)
+[2025-09-01 04:50:48,604] {subprocess.py:92} INFO - 	at org.apache.spark.sql.kafka010.KafkaMicroBatchStream.latestOffset(KafkaMicroBatchStream.scala:132)
+[2025-09-01 04:50:48,604] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$4(MicroBatchExecution.scala:449)
+[2025-09-01 04:50:48,604] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:375)
+[2025-09-01 04:50:48,604] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:373)
+[2025-09-01 04:50:48,604] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:68)
+[2025-09-01 04:50:48,604] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$2(MicroBatchExecution.scala:448)
+[2025-09-01 04:50:48,604] {subprocess.py:92} INFO - 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:286)
+[2025-09-01 04:50:48,604] {subprocess.py:92} INFO - 	at scala.collection.Iterator.foreach(Iterator.scala:943)
+[2025-09-01 04:50:48,604] {subprocess.py:92} INFO - 	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+[2025-09-01 04:50:48,605] {subprocess.py:92} INFO - 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+[2025-09-01 04:50:48,605] {subprocess.py:92} INFO - 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[2025-09-01 04:50:48,605] {subprocess.py:92} INFO - 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[2025-09-01 04:50:48,607] {subprocess.py:92} INFO - 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[2025-09-01 04:50:48,607] {subprocess.py:92} INFO - 	at scala.collection.TraversableLike.map(TraversableLike.scala:286)
+[2025-09-01 04:50:48,607] {subprocess.py:92} INFO - 	at scala.collection.TraversableLike.map$(TraversableLike.scala:279)
+[2025-09-01 04:50:48,607] {subprocess.py:92} INFO - 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[2025-09-01 04:50:48,608] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:437)
+[2025-09-01 04:50:48,608] {subprocess.py:92} INFO - 	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+[2025-09-01 04:50:48,608] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:693)
+[2025-09-01 04:50:48,608] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:433)
+[2025-09-01 04:50:48,608] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:238)
+[2025-09-01 04:50:48,608] {subprocess.py:92} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2025-09-01 04:50:48,608] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:375)
+[2025-09-01 04:50:48,608] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:373)
+[2025-09-01 04:50:48,608] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:68)
+[2025-09-01 04:50:48,608] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:219)
+[2025-09-01 04:50:48,608] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+[2025-09-01 04:50:48,609] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:213)
+[2025-09-01 04:50:48,609] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:307)
+[2025-09-01 04:50:48,609] {subprocess.py:92} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2025-09-01 04:50:48,609] {subprocess.py:92} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:779)
+[2025-09-01 04:50:48,610] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:285)
+[2025-09-01 04:50:48,610] {subprocess.py:92} INFO - 	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:208)
+[2025-09-01 04:50:48,610] {subprocess.py:92} INFO - Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+[2025-09-01 04:50:48,610] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+[2025-09-01 04:50:48,610] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+[2025-09-01 04:50:48,611] {subprocess.py:92} INFO - 	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:731)
+[2025-09-01 04:50:48,611] {subprocess.py:92} INFO - 	... 46 more
+[2025-09-01 04:50:48,798] {subprocess.py:92} INFO - Traceback (most recent call last):
+[2025-09-01 04:50:48,798] {subprocess.py:92} INFO -   File "/opt/***/scripts/pyspark/streaming.py", line 60, in <module>
+[2025-09-01 04:50:48,800] {subprocess.py:92} INFO -     query.awaitTermination()
+[2025-09-01 04:50:48,800] {subprocess.py:92} INFO -   File "/opt/spark-3.3.1-bin-hadoop3/python/lib/pyspark.zip/pyspark/sql/streaming.py", line 107, in awaitTermination
+[2025-09-01 04:50:48,801] {subprocess.py:92} INFO -   File "/opt/spark-3.3.1-bin-hadoop3/python/lib/py4j-0.10.9.5-src.zip/py4j/java_gateway.py", line 1322, in __call__
+[2025-09-01 04:50:48,803] {subprocess.py:92} INFO -   File "/opt/spark-3.3.1-bin-hadoop3/python/lib/pyspark.zip/pyspark/sql/utils.py", line 196, in deco
+[2025-09-01 04:50:48,829] {subprocess.py:92} INFO - pyspark.sql.utils.StreamingQueryException: Query [id = 8bb46a74-6ffa-4764-a9c6-2e4a331d8211, runId = 27871f4e-dbcc-496d-984a-83e12407a92d] terminated with exception: Failed to construct kafka consumer
+[2025-09-01 04:50:49,485] {subprocess.py:96} INFO - Command exited with return code 1
+[2025-09-01 04:50:49,522] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 195, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-09-01 04:50:49,528] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=send_weather_to_kafka, task_id=stream_hdfs, execution_date=20250901T022301, start_date=20250901T045047, end_date=20250901T045049
+[2025-09-01 04:50:49,561] {standard_task_runner.py:97} ERROR - Failed to execute job 434 for task stream_hdfs (Bash command failed. The command returned a non-zero exit code 1.; 4817)
+[2025-09-01 04:50:49,584] {local_task_job.py:156} INFO - Task exited with return code 1
+[2025-09-01 04:50:49,709] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
