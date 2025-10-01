@@ -55,20 +55,31 @@ weather_producer.py → Kafka (topic_meteo) → weather_consumer.py → PostgreS
 
 
 En résumé, j’ai monté un gros pipeline temps réel de données météo de Dakar qui combine plusieurs briques :
+
     • Airflow dans Docker pour orchestrer tes tâches.
     • Kafka pour gérer le streaming des données.
     • HDFS/Hadoop + YARN pour le stockage distribué et l’exécution des jobs.
+
     • PySpark qui tourne dans un conteneur dédié, connecté à YARN, et qui lance ton script /opt/pyspark/streaming.py.
+
     • ELK (Elasticsearch, Logstash, Kibana) pour l’indexation et la visualisation des données.
+
     • Redis probablement comme cache/message broker pour certaines étapes.
 Donc, concrètement :
+
     1. Airflow planifie/automatise tes DAGs, qui peuvent déclencher le spark-submit (soit via le conteneur PySpark, soit en appelant YARN directement).
+
     2. Kafka sert de source de données en continu pour PySpark Streaming.
+
     3. PySpark lit depuis Kafka, transforme les données, puis écrit soit dans Elasticsearch (pour Kibana), soit dans HDFS, soit ailleurs.
+
     4. HDFS est ton stockage distribué, géré par NameNode/DataNode.
+
     5. YARN (ResourceManager + NodeManager) orchestre les ressources pour Spark.
+
     6. ELK visualise et surveille les données et logs.
 Alors pyspark/streaming.py doit donc :
+
     • Se connecter à Kafka (KAFKA_BROKER_URL: kafka:9092).
     • Lire les messages.
     • Faire les transformations .
